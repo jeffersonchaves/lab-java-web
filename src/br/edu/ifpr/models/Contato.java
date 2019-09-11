@@ -2,6 +2,7 @@ package br.edu.ifpr.models;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Contato {
 
@@ -46,6 +47,14 @@ public class Contato {
     public Calendar getDataNascimento() {
         return dataNascimento;
     }
+
+    public String getDataNascimentoFormatada(){
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
+
+        return dateFormat.format(new Date(this.getDataNascimento().getTimeInMillis()));
+    }
+
 
     public void setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;

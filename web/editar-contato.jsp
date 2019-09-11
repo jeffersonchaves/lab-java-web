@@ -1,10 +1,20 @@
-<%--
+<%@ page import="br.edu.ifpr.daos.ContatoDAO" %>
+<%@ page import="br.edu.ifpr.models.Contato" %><%--
   Created by IntelliJ IDEA.
   User: JEFFERSON
   Date: 09/09/2019
   Time: 14:31
   To change this template use File | Settings | File Templates.
 --%>
+
+<%
+
+    ContatoDAO contatoDAO = new ContatoDAO();
+
+    Contato contato = contatoDAO.getContatoById(1);
+
+%>
+
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -23,7 +33,7 @@
 
 <div class="container">
 
-    <h1>Hello, world!</h1>
+    <h1>Editar </h1>
 
     <a href="index.jsp">voltar</a>
 
@@ -64,4 +74,3 @@
 
 </body>
 </html>
-

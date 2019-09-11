@@ -32,7 +32,7 @@
         <div class="form-group">
             <label for="nome">Nome</label>
             <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="seu nome email">
-            <small id="nomeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="nomeHelp" class="form-text text-muted">Help text.</small>
         </div>
 
         <div class="form-group">
@@ -44,13 +44,13 @@
         <div class="form-group">
             <label for="endereco">Endereço</label>
             <input name="endereco" type="text" class="form-control" id="endereco" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="enderecoHelp" class="form-text text-muted">Help adress.</small>
         </div>
 
         <div class="form-group">
             <label for="dataNascimento">Data Nascimento</label>
             <input name="dataNascimento" type="date" class="form-control" id="dataNascimento" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="datalHelp" class="form-text text-muted">Help date.</small>
         </div>
 
 
