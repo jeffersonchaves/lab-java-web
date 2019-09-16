@@ -1,18 +1,10 @@
 <%@ page import="br.edu.ifpr.daos.ContatoDAO" %>
-<%@ page import="br.edu.ifpr.models.Contato" %><%--
-  Created by IntelliJ IDEA.
-  User: JEFFERSON
-  Date: 09/09/2019
-  Time: 14:31
-  To change this template use File | Settings | File Templates.
---%>
-
+<%@ page import="br.edu.ifpr.models.Contato" %>
 <%
-
     ContatoDAO contatoDAO = new ContatoDAO();
 
-    Contato contato = contatoDAO.getContatoById(1);
-
+    int id = Integer.parseInt(request.getParameter("id"));
+    Contato contato = contatoDAO.getContatoById(id);
 %>
 
 <!doctype html>
@@ -26,14 +18,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Hello, world! </title>
 
 </head>
 <body>
 
 <div class="container">
 
-    <h1>Editar </h1>
+    <h1>Editar <%= contato.getNome() %> ${ param.id }</h1>
 
     <a href="index.jsp">voltar</a>
 
@@ -41,30 +33,29 @@
 
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeHelp" placeholder="seu nome email">
+            <input value="<%= contato.getNome() %>" name="nome" type="text" class="form-control" id="nome" aria-describedby="nomeHelp" >
             <small id="nomeHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input value="<%= contato.getEmail() %>" name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
             <label for="endereco">Endereço</label>
-            <input name="endereco" type="text" class="form-control" id="endereco" aria-describedby="emailHelp" placeholder="Enter email">
+            <input value="<%= contato.getEndereco() %>" name="endereco" type="text" class="form-control" id="endereco" aria-describedby="emailHelp" placeholder="Enter email">
             <small id="enderecoHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
             <label for="dataNascimento">Data Nascimento</label>
-            <input name="dataNascimento" type="date" class="form-control" id="dataNascimento" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="datalHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input value="<%= contato.getDataNascimentoFormatadaInput() %>" name="dataNascimento" type="date" class="form-control" id="dataNascimento" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="datalHelp" class="form-text text-muted"><%= contato.getDataNascimentoFormatadaInput() %>We'll never share your email with anyone else.</small>
         </div>
 
-
-        <button type="submit" class="btn btn-primary">cadastrar</button>
+        <button type="submit" class="btn btn-primary">atualizar</button>
     </form>
 
 </div>

@@ -4,7 +4,6 @@ import br.edu.ifpr.connection.ConnectionFactory;
 import br.edu.ifpr.models.Contato;
 
 import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
 public class ContatoDAO {
 
     private Connection connection;
-
     public ContatoDAO(){
          this.connection = new ConnectionFactory().getConnection();
     }
@@ -20,6 +18,7 @@ public class ContatoDAO {
     public void insereContato(Contato contato) {
 
         try {
+
             PreparedStatement statement = connection.prepareStatement("INSERT INTO contatos (nome, email, endereco, dataNascimento) values(?,?,?,?)");
             statement.setString(1, contato.getNome());
             statement.setString(2, contato.getEmail());
@@ -46,7 +45,6 @@ public class ContatoDAO {
             while (resultSet.next()){
 
                 Contato contato = new Contato();
-
                 contato.setId(resultSet.getLong("Id"));
                 contato.setNome(resultSet.getString("nome"));
                 contato.setEmail(resultSet.getString("email"));
@@ -69,8 +67,7 @@ public class ContatoDAO {
     public Contato getContatoById(int Id){
 
         Contato contato = new Contato();
-
-        String sql = "SELECT * FROM contatos WHERE id = 1";
+        String sql = "SELECT * FROM contatos WHERE id = " + Id;
 
         try {
 
@@ -89,9 +86,7 @@ public class ContatoDAO {
                contato.setDataNascimento(calendar);
            }
 
-
         } catch (SQLException e) {
-            //e.printStackTrace();
             System.out.println("Exception:" + e.getMessage());
         }
 

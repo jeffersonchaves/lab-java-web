@@ -49,12 +49,12 @@
     <c:forEach var="contato" items="${dao.contatos}">
       <tr>
 
-        <th scope="row">${contato.id }</th>
+        <th scope="row">${ contato.id }</th>
         <td>${ contato.nome }</td>
         <td>${ contato.email }</td>
         <td>${ contato.endereco }</td>
         <td>${ contato.dataNascimentoFormatada }</td>
-        <td> <a href="editar-contato.jsp">editar</a> | excluir</td>
+        <td> <a href="editar-contato.jsp?id=${ contato.id }">editar</a> | excluir</td>
 
       </tr>
 

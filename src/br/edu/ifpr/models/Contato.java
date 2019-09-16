@@ -49,9 +49,12 @@ public class Contato {
     }
 
     public String getDataNascimentoFormatada(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd / MM / yyyy");
+        return dateFormat.format(new Date(this.getDataNascimento().getTimeInMillis()));
+    }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
-
+    public String getDataNascimentoFormatadaInput(){
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.format(new Date(this.getDataNascimento().getTimeInMillis()));
     }
 
@@ -61,14 +64,14 @@ public class Contato {
     }
 
     public void show(){
+
         System.out.println("id: " + this.getId());
         System.out.println("nome: " + this.getNome());
         System.out.println("e-mail: " + this.getEmail());
         System.out.println("endereço: " + this.getEndereco());
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/YYYY");
-
         System.out.println("data nascimento: " + dateFormat.format(this.getDataNascimento()));
-        System.out.println("");
+
     }
 }
